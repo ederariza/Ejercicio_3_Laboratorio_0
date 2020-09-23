@@ -19,7 +19,7 @@ int main()
     while (numero_1>0) {
         numero_2 = numero_1%10;
         numero_1 /= 10;
-        suma +=   numero_2 * numero_2;
+        suma +=  numero_2 * numero_2;
         cout<< numero_2 << "^"<< numero_2 << "+";
 
     }

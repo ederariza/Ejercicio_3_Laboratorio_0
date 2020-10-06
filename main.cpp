@@ -9,20 +9,21 @@ mostrara el número 32.
 
 using namespace std;
 
-int main()
-{
+int main(){
+
     int numero_1, numero_2, suma;
-    cout<< "Ingrese un numero entero: ";
-    cin>> numero_1;
+    cout << "Ingrese un numero entero: ";
+    cin >> numero_1;
 
     suma = 0;
-    while (numero_1>0) {
+    while (numero_1 > 0){
+
         numero_2 = numero_1%10;
         numero_1 /= 10;
         suma +=  numero_2 * numero_2;
-        cout<< numero_2 << "^"<< numero_2 << "+";
+        cout << numero_2 << "^" << numero_2 << "+";
 
     }
-    cout<< " = " << suma << endl;
+    cout << " = " << suma << endl;
     return 0;
 }

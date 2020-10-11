@@ -11,19 +11,52 @@ using namespace std;
 
 int main(){
 
-    int numero_1, numero_2, suma;
+    int numero;
+
     cout << "Ingrese un numero entero: ";
-    cin >> numero_1;
+    cin >> numero;
 
-    suma = 0;
-    while (numero_1 > 0){
+    //Bloque que descompone el numero hallando sus digitos
+    int numero_nuevo = numero;
+    int digito = 0;
+    while (numero_nuevo > 0){
 
-        numero_2 = numero_1%10;
-        numero_1 /= 10;
-        suma +=  numero_2 * numero_2;
-        cout << numero_2 << "^" << numero_2 << "+";
+        if (numero_nuevo % 10 != 0)
+            digito += 1,
+            numero_nuevo = numero_nuevo / 10;
+
+    else
+            digito += 1,
+            numero_nuevo = numero_nuevo / 10;
 
     }
-    cout << " = " << suma << endl;
+
+    //Bloque que halla la potencia de 10 mayor del numero
+    int potencia;
+    for (int i = 0; i < digito; i++){
+
+        if (i == 0)
+            potencia = 1;
+
+        else
+            potencia *= 10;
+    }
+
+    //Bloque que genera las potencias de cada digito del numero
+    int suma = 0;
+    for (int i = 0; i < digito; i++){
+
+        numero_nuevo = numero / potencia;
+        numero -= numero_nuevo * potencia;
+        potencia /= 10;
+        suma += numero_nuevo * numero_nuevo;
+
+        if (i != digito - 1)
+            cout << numero_nuevo << "^" << numero_nuevo << " + ";
+
+        else
+            cout << numero_nuevo << "^" << numero_nuevo << " = " << suma << endl;
+    }
+
     return 0;
 }
